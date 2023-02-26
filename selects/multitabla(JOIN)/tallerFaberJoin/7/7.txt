@@ -1,0 +1,4 @@
+#7.- . Interesa conocer cuál es el vehículo con más kilómetros que ha visitado el taller. Mostrar los kilómetros, la marca, el modelo, el color y la matrícula.
+select km, marca, modelo, color, v.Matricula from reparaciones r join vehiculos v 
+	on r.Matricula = v.Matricula
+	where km = (select max(km) from reparaciones);

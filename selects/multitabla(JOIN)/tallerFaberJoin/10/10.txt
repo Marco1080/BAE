@@ -1,0 +1,5 @@
+#10.- Obtener un listado que nos informe del número de facturas que hemos emitido a cada cliente.
+#El listado tendrá dos columnas: el nombre completo del cliente y el número de facturas que le corresponden.
+select concat(apellidos,", ", nombre)Cliente, count(IdFactura)as NºFacturas from clientes c
+join facturas f
+on c.CodCliente = f.CodCliente group by nombre order by NºFacturas desc ;

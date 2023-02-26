@@ -1,0 +1,6 @@
+#4.- Obtener un listado con el número de reparaciones en las que ha intervenido cada uno de los empleados. El listado debe mostrar:
+#El número de reparaciones, los apellidos y el nombre del empleado.
+#El número de reparaciones debe aparecer en orden descendente.
+select nombre, apellidos, count(IdReparacion)as Reparaciones from empleados
+	join intervienen
+	on empleados.CodEmpleado = intervienen.CodEmpleado group by nombre;

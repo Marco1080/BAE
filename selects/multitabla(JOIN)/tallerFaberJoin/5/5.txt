@@ -1,0 +1,11 @@
+#5.- Los socios del taller pretenden dar un servicio cada vez más rápido a sus clientes. 
+#Para ello han previsto que las reparaciones se realicen antes de 2 días. Interesa conocer 
+#las reparaciones que han superado esa previsión y los empleados que la han realizado. Las columnas que se deben mostrar son:
+#Nombre de los empleados, Fecha de entrada, Fecha de salida y Fecha de
+select nombre, FechaEntrada, date_add(FechaEntrada, interval 2 day) as SalidaPrevista, FechaSalida from empleados
+	join intervienen join reparaciones join realizan join actuaciones
+	on empleados.CodEmpleado = intervienen.CodEmpleado
+	and intervienen.IdReparacion = reparaciones.IdReparacion
+	and reparaciones.IdReparacion = realizan.IdReparacion
+	and realizan.Referencia = actuaciones.Referencia
+    where FechaSalida > date_add(FechaEntrada, interval 2 day);

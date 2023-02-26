@@ -1,0 +1,4 @@
+#6.- Hacer una consulta que devuelva los nombres y categorías de los empleados que han intervenido en alguna reparación.
+select nombre, categoria from empleados e
+join intervienen i
+on e.CodEmpleado = i.CodEmpleado group by nombre order by categoria;#con un distinct tambien aceptable
